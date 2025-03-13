@@ -1,0 +1,28 @@
+{
+  "version": "3.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "popper.js@2.11.8",
+      "destination": "wwwroot/popper.js/"
+    },
+    {
+      "library": "remixicon@4.6.0",
+      "destination": "wwwroot/remixicon/",
+      "files": [
+        "remixicon.css",
+        "remixicon.min.css",
+        "remixicon.woff2",
+        "remixicon.woff",
+        "remixicon.ttf",
+        "remixicon.symbol.svg",
+        "remixicon.svg",
+        "remixicon.eot"
+      ]
+    },
+    {
+      "library": "Swiper@11.0.5",
+      "destination": "wwwroot/lib/Swiper/"
+    }
+  ]
+}
