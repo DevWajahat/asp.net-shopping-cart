@@ -19,13 +19,19 @@ namespace shoppingCart.Controllers
         }
         public IActionResult customerAccount()
         {
-            string customer_session = HttpContext.Session.GetString("customer_session");
-            if (customer_session != null)
+            var  customerId = HttpContext.Session.GetString("customer_session");
+            if (customerId != null)
             {
+                var row = _context.tbl_Customer.Where(a => a.Customer_id == int.Parse(customerId)).ToList();
+                if (row == null || row.Count == 0)
+                {
+                    // Handle the case where the dealer is not found
+                    // Redirect to an appropriate action or return an error view
+                    return RedirectToAction("customerLogin");
+                }
                 List<Category> category = _context.tbl_Category.ToList();
                 ViewData["category"] = category;
-                var customerId = HttpContext.Session.GetString("customer_session");
-                var row = _context.tbl_Customer.Where(c => c.Customer_id == int.Parse(customerId)).ToList();
+                
 
 
                 return View(row);
@@ -35,8 +41,15 @@ namespace shoppingCart.Controllers
                 return RedirectToAction("customerLogin");
             }
 
-           
-        
+
+
+        }
+
+        public IActionResult updateCustomerAccount(Customer customer)
+        {
+            _context.tbl_Customer.Update(customer);
+            _context.SaveChanges();
+            return RedirectToAction("customerAccount");
         }
         public IActionResult _fetchCategoryInTabs()
         {
@@ -84,5 +97,6 @@ namespace shoppingCart.Controllers
             _context.SaveChanges();
             return RedirectToAction("customerLogin");
         }
+        
     }
 }
