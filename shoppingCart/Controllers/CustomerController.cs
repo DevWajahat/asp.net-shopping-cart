@@ -25,18 +25,52 @@ namespace shoppingCart.Controllers
         }
         public IActionResult customerAccount()
         {
+<<<<<<< HEAD
          if(string.IsNullOrEmpty(HttpContext.Session.GetString("customer_session")))
             {
                 return RedirectToAction("customerLogin");
             }
             else
+=======
+            var  customerId = HttpContext.Session.GetString("customer_session");
+            if (customerId != null)
+>>>>>>> 485e2d42c96c819250a222e9c6a37202de4e4848
             {
+                var row = _context.tbl_Customer.Where(a => a.Customer_id == int.Parse(customerId)).ToList();
+                if (row == null || row.Count == 0)
+                {
+                    // Handle the case where the dealer is not found
+                    // Redirect to an appropriate action or return an error view
+                    return RedirectToAction("customerLogin");
+                }
                 List<Category> category = _context.tbl_Category.ToList();
                 ViewData["category"] = category;
+<<<<<<< HEAD
                 var customerId = HttpContext.Session.GetString("customer_session");
                 var row = _context.tbl_Customer.Where(c =>c.Customer_id == int.Parse(customerId)).ToList();
                 return View(row);
             }
+=======
+                
+
+
+                return View(row);
+            }
+            else
+            {
+                return RedirectToAction("customerLogin");
+            }
+
+
+
+        }
+
+        public IActionResult updateCustomerAccount(Customer customer)
+        {
+            _context.tbl_Customer.Update(customer);
+            _context.SaveChanges();
+            return RedirectToAction("customerAccount");
+>>>>>>> 485e2d42c96c819250a222e9c6a37202de4e4848
         }
         [HttpPost]
         public IActionResult CustomerUpdateProfile(Customer customer)
@@ -113,6 +147,7 @@ namespace shoppingCart.Controllers
             _context.SaveChanges();
             return RedirectToAction("customerLogin");
         }
+<<<<<<< HEAD
         public IActionResult fetchAllProducts()
         {
             List<Category> category = _context.tbl_Category.ToList();
@@ -176,5 +211,8 @@ namespace shoppingCart.Controllers
             _context.SaveChanges();
             return RedirectToAction("fetchCart");  
         }
+=======
+        
+>>>>>>> 485e2d42c96c819250a222e9c6a37202de4e4848
     }
 }
