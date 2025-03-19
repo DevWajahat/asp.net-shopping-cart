@@ -228,6 +228,55 @@ using shoppingCart.Models;
             _context.SaveChanges();
             return RedirectToAction("fetchProduct");
         }
+        public IActionResult fetchfeedback()
+        {
+            
+            return View(_context.tbl_feedback.ToList());
+        }
+        public IActionResult deletePermissionFeedback(int id)
+        {
+            return View(_context.tbl_feedback.FirstOrDefault(f =>f.Feedback_id == id));
+        }
+        public IActionResult deleteFeedback(int id)
+        {
+            var feedback = _context.tbl_feedback.Find(id);
+            _context.tbl_feedback.Remove(feedback);
+            _context.SaveChanges();
+            return RedirectToAction("fetchfeedback");
+        }
+        public IActionResult fetchCart()
+        {
+            var cart = _context.tbl_Cart.Include(c => c.products).Include (c => c.customers).ToList();
+            return View(cart);
+        }
+        public IActionResult deletePermissionCart(int id)
+        {
+            return View(_context.tbl_Cart.FirstOrDefault(c => c.cart_id == id));
+        }
 
+       
+
+        public IActionResult deleteCart(int id)
+        {
+            var cart = _context.tbl_Cart.Find(id);
+            _context.tbl_Cart.Remove(cart);
+            _context.SaveChanges();
+            return RedirectToAction("fetchCart");
+        }
+        public IActionResult updateCart(int id)
+        {
+            var cart = _context.tbl_Cart.Find(id);
+           
+            return View(cart);
+         
+        }
+        [HttpPost]
+        public IActionResult updateCart(int cart_status, Cart cart)
+        {
+            cart.cart_status = cart_status;
+            _context.tbl_Cart.Update(cart);
+            _context.SaveChanges();
+            return RedirectToAction("fetchCart");
+        }
     }
 }

@@ -25,4 +25,11 @@
     <Folder Include="wwwroot\product_images\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="wwwroot\js\slick.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

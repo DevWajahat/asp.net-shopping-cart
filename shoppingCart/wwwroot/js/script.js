@@ -8,6 +8,7 @@ var swiper = new Swiper(".mySwiper", {
 
 
      //product slider
+     //product slider
 var productSwiper = new Swiper(".productSwiper", {
     slidesPerView: 3,
     spaceBetween: 20,
@@ -39,6 +40,11 @@ var productSwiper = new Swiper(".productSwiper", {
     }
 });
 
+
+// /productslider
+
+
+// review slider
 var swiper = new Swiper('.review-container', {
     slidesPerView: 1,
     spaceBetween: 30,

@@ -5,7 +5,9 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-
+body{
+    min-height:100vh;
+}
 :root {
   --primary-color: #8e6ff7;
   --dark-color: #000;
@@ -82,7 +84,7 @@
 }
 /* /header */
 
-/* slider */
+/* Product slider */
 .swiper-slide {
   text-align: center;
   font-size: 18px;
@@ -114,34 +116,122 @@
 }
 
 /* product slider */
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: var(--light-color);
+    color: var(--light-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--primary-color);
+}
+/* /slider */
+
+.card-custom {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .card-custom img {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+.btn-custom {
+    background-color: #a855f7;
+    color: white;
+}
+
+    .btn-custom:hover {
+        background-color: #9333ea;
+    }
+
+
 .productSwiper .swiper-button-prev,
 .productSwiper .swiper-button-next {
-  color: var(--primary-color) !important;
-  background-color: var(--light-color);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  color: #000 !important;
-  position: absolute;
-  top: 50%;
-  transform: translate(0%, -50%);
-  z-index: 10;
+    color: var(--primary-color) !important;
+    background-color: var(--light-color);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: #000 !important;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+    z-index: 10;
 }
 
 .productSwiper {
-  overflow: hidden;
+    overflow: hidden;
 }
+
 .product-swiper-nav {
-  display: flex;
-  justify-content: center;
-  margin-top: 3px;
-  /* position: relative; */
+    display: flex;
+    justify-content: center;
+    margin-top: 3px;
+    /* position: relative; */
 }
 
 .productSwiper .swiper-button-prev::after,
 .productSwiper .swiper-button-next::after {
-  font-size: 24px;
+    font-size: 24px;
+}
+/* product slider */
+
+
+
+/**
+  Demo only
+*/
+.note {
+    text-align: center;
+    font-size: 14px;
+    max-width: 960px;
+    padding: 40px 20px;
+    margin: 0 auto;
+    opacity: .8;
+    a
+
+{
+    color: black;
+    font-weight: bold;
+    &:hover, &:focus
+
+{
+    color: royalblue;
+}
+
+}
+}
+
+
+/**
+  Demo only
+*/
+.note {
+    text-align: center;
+    font-size: 14px;
+    max-width: 960px;
+    padding: 40px 20px;
+    margin: 0 auto;
+    opacity: .8;
+    a
+
+{
+    color: black;
+    font-weight: bold;
+    &:hover, &:focus
+
+{
+    color: royalblue;
+}
+
+}
 }
 /* /product slider */
 /* categorycard */
